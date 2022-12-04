@@ -1,5 +1,5 @@
 /*-----------------------------------------
-Fichier fourni par le centre de formation
+Partie fourni par le centre de formation
 -----------------------------------------*/
 :root {
   --font-default: "DM Sans", Arial, Helvetica, sans-serif;
@@ -529,5 +529,20 @@ footer {
   }
   to {
     opacity: 1;
+  }
+}
+
+/*-----------------------------------------
+Partie codée par l'étudiant
+-----------------------------------------*/
+
+@media (min-width: 801px) and (max-width: 1000px) {
+  .hero-headline {
+    font-size: 4.5rem;
+  }
+  .hero-img img {
+    overflow: hidden;
+    width: min-content;
+    align-items: flex-end;
   }
 }

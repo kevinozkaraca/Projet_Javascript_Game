@@ -49,6 +49,26 @@ Ajouter la fonctionnalité au bouton (x)
 
 ## Tests manuels :
 
+### AVANT
+
+<p align="center">
+<img 
+class="IMGlink"
+src="./imagesReadme/001.jpg"
+width= 80%
+        />
+</p>
+
+### APRES
+
+<p align="center">
+<img 
+class="IMGlink"
+src="./imagesReadme/001b.jpg"
+width= 80%
+        />
+</p>
+
 ## Ajouter confirmation quand envoi réussi :
 
 ## Ajouter validation ou messages d'erreur :
