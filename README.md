@@ -45,7 +45,7 @@ Conserver les données du formulaire (ne pas effacer le formulaire) lorsqu'il ne
 
 Ajouter la fonctionnalité au bouton (x)
 
-## Réalisation de test :
+## Tests manuels :
 
 ### 1. L'image et le texte peuventt etre améliorés
 
