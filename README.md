@@ -8,17 +8,17 @@
 
 ## Tache :
 
-- Tests manuels :
+🔴 Tests manuels :
 
 Visualiser et tester l'interface utilisateur dans les dernières versions de Chrome et de Firefox, ainsi que dans les versions mobile et desktop. Corriger les erreurs d'affichage existantes.
 
 Tester toutes les fonctionnalités des boutons et des entrées de formulaire (tester les valeurs correctes et incorrectes)
 
-- Ajouter confirmation quand envoi réussi :
+🔴 Ajouter confirmation quand envoi réussi :
 
 Après une validation réussie, inclure un message de confirmation de la soumission réussie pour l'utilisateur (ex. "Merci ! Votre réservation a été reçue.")
 
-- Ajouter validation ou messages d'erreur :
+🔴 Ajouter validation ou messages d'erreur :
 
 Des messages d'erreur spécifiques doivent apparaître sous l'entrée qui n'est pas correcte. Les messages d'erreur doivent s'afficher sous le champ de saisie associé. Exemples :
 
@@ -27,7 +27,7 @@ Des messages d'erreur spécifiques doivent apparaître sous l'entrée qui n'est 
 "Vous devez vérifier que vous acceptez les termes et conditions."
 "Vous devez entrer votre date de naissance."
 
-- Implémenter entrées du formulaire :
+🔴 Implémenter entrées du formulaire :
 
 (1) Lier les labels aux entrées dans le HTML en utilisant les attributs "for" et "id" dans le code existant. Corriger le code HTML quand nécessaire. 2) Utiliser du JavaScript pur (pas de jQuery) pour terminer le formulaire :
 
@@ -41,7 +41,7 @@ Les données doivent être saisies correctement :
 (6) La case des conditions générales est cochée, l'autre case est facultative / peut être laissée décochée.
 Conserver les données du formulaire (ne pas effacer le formulaire) lorsqu'il ne passe pas la validation.
 
-- TODO : fermer la modale :
+🔴 TODO : fermer la modale :
 
 Ajouter la fonctionnalité au bouton (x)
 
@@ -57,7 +57,7 @@ width= 80%
         />
 </p>
 
-### 2. Ajouter des Regex
+### 2. Aucune Regex
 
 <p align="center">
 <img 
@@ -67,7 +67,7 @@ width= 80%
         />
 </p>
 
-### 3. Permettre la fermeture de la fenetre modale
+### 3. Pas fermeture de la fenetre modale
 
 <p align="center">
 <img 
@@ -77,7 +77,7 @@ width= 80%
         />
 </p>
 
-### 4. Empécher la possibilité de confirmation tant que le formulaire n'est pas valide
+### 4. Aucun événement apres la validation du formulaire
 
 <p align="center">
 <img 
