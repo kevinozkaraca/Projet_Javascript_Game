@@ -1,6 +1,12 @@
-# Réalisation de test
+# Instructions
 
-## 1. L'image peut etre améliorée
+- utiliser des fichiers séparés pour le HTML, le CSS et le JavaScript ;
+- toujours commenter ton code (décrire chaque fonction et chaque classe, ainsi que les parties du code qui nécessitent plus de détails) ;
+- tester manuellement les fonctionnalités, les entrées de formulaire et l'affichage responsive.
+
+## Réalisation de test
+
+### 1. L'image peut etre améliorée
 
 <p align="center">
 <img 
@@ -10,7 +16,7 @@ width= 80%
         />
 </p>
 
-## 2. Ajouter des Regex
+### 2. Ajouter des Regex
 
 <p align="center">
 <img 
@@ -20,7 +26,7 @@ width= 80%
         />
 </p>
 
-## 3. Permettre la fermeture de la fenetre modale
+### 3. Permettre la fermeture de la fenetre modale
 
 <p align="center">
 <img 
@@ -30,7 +36,7 @@ width= 80%
         />
 </p>
 
-## 4. Empécher la possibilité de confirmation tant que le formulaire n'est pas valide
+### 4. Empécher la possibilité de confirmation tant que le formulaire n'est pas valide
 
 <p align="center">
 <img 

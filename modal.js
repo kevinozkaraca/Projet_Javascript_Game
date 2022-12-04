@@ -1,3 +1,6 @@
+/*-----------------------------------------
+Fichier fourni par le centre de formation
+-----------------------------------------*/
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -19,5 +22,3 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {
   modalbg.style.display = "block";
 }
-
-
