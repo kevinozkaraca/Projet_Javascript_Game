@@ -45,44 +45,24 @@ Conserver les données du formulaire (ne pas effacer le formulaire) lorsqu'il ne
 
 Ajouter la fonctionnalité au bouton (x)
 
+# REALISATION :
+
 ## Tests manuels :
 
-### 1. L'image et le texte peuventt etre améliorés
+## Ajouter confirmation quand envoi réussi :
+
+## Ajouter validation ou messages d'erreur :
+
+## Implémenter entrées du formulaire :
+
+## TODO : fermer la modale :
+
+✅ Ajouter la fonctionnalité au bouton (x)
 
 <p align="center">
 <img 
 class="IMGlink"
-src="./imagesReadme/001.jpg"
-width= 80%
-        />
-</p>
-
-### 2. Aucune Regex
-
-<p align="center">
-<img 
-class="IMGlink"
-src="./imagesReadme/002.jpg"
-width= 80%
-        />
-</p>
-
-### 3. Pas fermeture de la fenetre modale
-
-<p align="center">
-<img 
-class="IMGlink"
-src="./imagesReadme/003.jpg"
-width= 80%
-        />
-</p>
-
-### 4. Aucun événement apres la validation du formulaire
-
-<p align="center">
-<img 
-class="IMGlink"
-src="./imagesReadme/004.jpg"
+src="./imagesReadme/001.gif"
 width= 80%
         />
 </p>
