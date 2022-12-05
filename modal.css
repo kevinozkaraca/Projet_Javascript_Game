@@ -536,13 +536,18 @@ footer {
 Partie codée par l'étudiant
 -----------------------------------------*/
 
-@media (min-width: 801px) and (max-width: 1000px) {
+/*
+Changement de comportement pour la barre de navigation, le titre et l'image 
+*/
+
+@media (min-width: 750px) and (max-width: 1000px) {
   .hero-headline {
     font-size: 4.5rem;
   }
   .hero-img img {
     overflow: hidden;
-    width: min-content;
-    align-items: flex-end;
+  }
+  .main-navbar span {
+    font-size: 1.1rem;
   }
 }
