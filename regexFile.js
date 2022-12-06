@@ -7,7 +7,8 @@ let validationPrenomCheck = false;
 let validationNomCheck = false;
 let validationAdressCheck = false;
 let validationEmailCheck = false;
-let validationCheckBox = false;
+let validationCheckBoxCheck = false;
+let validationGamonQuantityCheck = false;
 
 //ciblage des éléments :
 let inputPrenom = document.getElementById("first");
@@ -16,9 +17,9 @@ let inputEmail = document.getElementById("email");
 let checkbox01 = document.getElementById("checkbox1");
 let labelCheckbox01 = document.getElementsByClassName("checkbox2-label")[0];
 let bouttonCParti = document.getElementsByClassName("btn-submit")[0];
-let numberOfGameon = document.getElementById("birthdate");
+let numberOfGameon = document.getElementById("quantity");
 
-console.log(numberOfGameon);
+console.log(numberOfGameon.value);
 
 // liste des regex
 let regexFirstName =
@@ -83,11 +84,11 @@ function validationMail() {
 validationMail();
 
 // fonction de validation pour la checkbox
-function validationCheckBox01() {
+function validationCheckBox() {
   checkbox01.addEventListener("change", function () {
     if (this.checked) {
       smallCreation4.innerText = "";
-      validationCheckBox = true;
+      validationCheckBoxCheck = true;
     } else {
       labelCheckbox01.insertAdjacentElement("afterend", smallCreation4);
       smallCreation4.style.color = "red";
@@ -96,7 +97,24 @@ function validationCheckBox01() {
     }
   });
 }
-validationCheckBox01();
+validationCheckBox();
+
+// fonction de validation de la quantité de tournoi
+function validationGamonQuantity() {
+  numberOfGameon.addEventListener("change", function () {
+    console.log(numberOfGameon.value);
+    if (numberOfGameon.value < 0 || numberOfGameon.value > 99) {
+      numberOfGameon.insertAdjacentElement("afterend", smallCreation4);
+      smallCreation4.style.color = "red";
+      smallCreation4.style.fontSize = "small";
+      smallCreation4.innerText = "Veuillez saisir un nombre en 0 et 99";
+    } else {
+      smallCreation4.innerText = "";
+      validationCheckBoxCheck = true;
+    }
+  });
+}
+validationGamonQuantity();
 
 // fonction de validation pour le bouton
 function validationDuBoutton(e) {
@@ -106,14 +124,13 @@ function validationDuBoutton(e) {
       validationNomCheck == false &&
       validationAdressCheck == false &&
       validationEmailCheck == false &&
-      validationCheckBox == false
+      validationCheckBoxCheck == false
     ) {
       e.target.disabled = true;
       bouttonCParti.insertAdjacentElement("afterend", smallCreation5);
       smallCreation5.style.color = "red";
       smallCreation5.style.fontSize = "small";
       smallCreation5.innerText = "Des informations sont manquantes ou erronées";
-      console.log(numberOfGameon);
     } else {
       e.target.disabled = false;
     }
