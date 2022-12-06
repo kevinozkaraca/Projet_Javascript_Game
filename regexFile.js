@@ -16,6 +16,9 @@ let inputEmail = document.getElementById("email");
 let checkbox01 = document.getElementById("checkbox1");
 let labelCheckbox01 = document.getElementsByClassName("checkbox2-label")[0];
 let bouttonCParti = document.getElementsByClassName("btn-submit")[0];
+let numberOfGameon = document.getElementById("birthdate");
+
+console.log(numberOfGameon);
 
 // liste des regex
 let regexFirstName =
@@ -30,28 +33,6 @@ let smallCreation2 = document.createElement("small");
 let smallCreation3 = document.createElement("small");
 let smallCreation4 = document.createElement("small");
 let smallCreation5 = document.createElement("small");
-
-// fonction de validation pour le bouton
-function validationDuBoutton(e) {
-  bouttonCParti.addEventListener("click", function (e) {
-    if (
-      validationPrenomCheck == false &&
-      validationNomCheck == false &&
-      validationAdressCheck == false &&
-      validationEmailCheck == false &&
-      validationCheckBox == false
-    ) {
-      e.target.disabled = true;
-      bouttonCParti.insertAdjacentElement("afterend", smallCreation5);
-      smallCreation5.style.color = "red";
-      smallCreation5.style.fontSize = "small";
-      smallCreation5.innerText = "Des informations sont manquantes ou erronées";
-    } else {
-      console.log("dlkfh");
-    }
-  });
-}
-validationDuBoutton();
 
 // fonction de validation pour le prenom
 function validationPrenom() {
@@ -117,68 +98,25 @@ function validationCheckBox01() {
 }
 validationCheckBox01();
 
-/*
-function validationEmail() {
-  // Email
-  let email = document.getElementById("email");
-  let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  email.addEventListener("change", function () {
-    /*if (regexEmail.test(email.value)) {
-      emailErrorMsg.innerText = "";
-      validationEmailCheck = true;
-      return true;
-    } else {}
-    const creationDeDiv1 = document.createElement("small");
-    emailErrorMsg.innerText = "Veuillez saisir une adresse mail valide";
-    email.appendChild(creationDeDiv1);
-    return false;
-  });
-}
-
-validationEmail();
-
-function validationPrenom() {
-  // Prenom
-  let firstName = document.getElementById("firstName");
-  let firstNameErrorMsg = document.getElementById("firstNameErrorMsg");
-  let regexFirstName =
-    /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
-  firstName.addEventListener("change", function () {
-    if (regexFirstName.test(firstName.value)) {
-      firstNameErrorMsg.innerText = "  ";
-      validationPrenomCheck = true;
-
-      return true;
+// fonction de validation pour le bouton
+function validationDuBoutton(e) {
+  bouttonCParti.addEventListener("click", function (e) {
+    if (
+      validationPrenomCheck == false &&
+      validationNomCheck == false &&
+      validationAdressCheck == false &&
+      validationEmailCheck == false &&
+      validationCheckBox == false
+    ) {
+      e.target.disabled = true;
+      bouttonCParti.insertAdjacentElement("afterend", smallCreation5);
+      smallCreation5.style.color = "red";
+      smallCreation5.style.fontSize = "small";
+      smallCreation5.innerText = "Des informations sont manquantes ou erronées";
+      console.log(numberOfGameon);
     } else {
-      firstNameErrorMsg.innerText = "Veuillez saisir un prénom correct";
-      return false;
+      e.target.disabled = false;
     }
   });
 }
-function validationNom() {
-  // Nom
-  let lastName = document.getElementById("lastName");
-  let lastNameErrorMsg = document.getElementById("lastNameErrorMsg");
-  let regexLastName =
-    /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
-  lastName.addEventListener("change", function () {
-    if (regexLastName.test(lastName.value)) {
-      lastNameErrorMsg.innerText = "  ";
-      validationNomCheck = true;
-
-      return true;
-    } else {
-      lastNameErrorMsg.innerText = "Veuillez saisir un nom correct";
-      return false;
-    }
-  });
-}
-
-
-if (
-    validationPrenomCheck == true &&
-    validationNomCheck == true &&
-    validationAdressCheck == true &&
-    validationVilleCheck == true &&
-    validationEmailCheck == true
-  )*/
+validationDuBoutton();

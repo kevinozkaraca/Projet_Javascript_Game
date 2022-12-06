@@ -32,14 +32,15 @@ Des messages d'erreur spécifiques doivent apparaître sous l'entrée qui n'est 
 (1) Lier les labels aux entrées dans le HTML en utilisant les attributs "for" et "id" dans le code existant. Corriger le code HTML quand nécessaire. 2) Utiliser du JavaScript pur (pas de jQuery) pour terminer le formulaire :
 
 Le formulaire doit être valide quand l'utilisateur clique sur "Submit"
-Les données doivent être saisies correctement :
-(1) Le champ Prénom a un minimum de 2 caractères / n'est pas vide.
-(2) Le champ du nom de famille a un minimum de 2 caractères / n'est pas vide.
-(3) L'adresse électronique est valide.
-(4) Pour le nombre de concours, une valeur numérique est saisie.
-(5) Un bouton radio est sélectionné.
-(6) La case des conditions générales est cochée, l'autre case est facultative / peut être laissée décochée.
-Conserver les données du formulaire (ne pas effacer le formulaire) lorsqu'il ne passe pas la validation.
+Les données doivent être saisies correctement
+
+- (1) Le champ Prénom a un minimum de 2 caractères / n'est pas vide.
+- (2) Le champ du nom de famille a un minimum de 2 caractères / n'est pas vide.
+- (3) L'adresse électronique est valide.
+- (4) Pour le nombre de concours, une valeur numérique est saisie.
+- (5) Un bouton radio est sélectionné.
+- (6) La case des conditions générales est cochée, l'autre case est facultative / peut être laissée décochée.
+  Conserver les données du formulaire (ne pas effacer le formulaire) lorsqu'il ne passe pas la validation.
 
 🔴 TODO : fermer la modale :
 
@@ -65,6 +66,40 @@ width= 80%
 <img 
 class="IMGlink"
 src="./imagesReadme/001b.jpg"
+width= 80%
+        />
+</p>
+
+### AVANT
+
+<p align="center">
+<img 
+class="IMGlink"
+src="./imagesReadme/005a.jpg"
+width= 80%
+        />
+</p>
+<p align="center">
+<img 
+class="IMGlink"
+src="./imagesReadme/005b.jpg"
+width= 80%
+        />
+</p>
+
+### APRES
+
+<p align="center">
+<img 
+class="IMGlink"
+src="./imagesReadme/006a.jpg"
+width= 80%
+        />
+</p>
+<p align="center">
+<img 
+class="IMGlink"
+src="./imagesReadme/006b.jpg"
 width= 80%
         />
 </p>
