@@ -7,6 +7,7 @@ let validationPrenomCheck = false;
 let validationNomCheck = false;
 let validationEmailCheck = false;
 let validationCheckBoxCheck = false;
+let validationTownCheckBoxCheck = false;
 let validationGamonQuantityCheck = false;
 
 //ciblage des éléments :
@@ -14,11 +15,13 @@ let inputPrenom = document.getElementById("first");
 let inputNom = document.getElementById("last");
 let inputEmail = document.getElementById("email");
 let checkbox01 = document.getElementById("checkbox1");
-let labelCheckbox01 = document.getElementsByClassName("checkbox2-label")[0];
+let townCheckbox = document.getElementsByClassName("checkbox-icon");
 let bouttonCParti = document.getElementsByClassName("btn-submit")[0];
 let numberOfGameon = document.getElementById("quantity");
 let boutonModal = document.querySelector("button");
 
+console.log(townCheckbox);
+console.log(townCheckbox[0]);
 // liste des regex
 let regexFirstName =
   /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
@@ -112,7 +115,6 @@ validationCheckBox();
 // fonction de validation de la quantité de tournoi
 function validationGamonQuantity() {
   numberOfGameon.addEventListener("change", function () {
-    console.log(numberOfGameon.value);
     if (numberOfGameon.value <= -1 || numberOfGameon.value >= 100) {
       numberOfGameon.insertAdjacentElement("afterend", smallCreation5);
       smallCreation5.style.color = "red";
@@ -129,6 +131,27 @@ function validationGamonQuantity() {
 }
 validationGamonQuantity();
 
+// fonction de validation pour la checkbox Ville
+function validationTownCheckBox() {
+  townCheckbox[0].addEventListener("change", function () {
+    console.log("Je suis li");
+    if (this.checked) {
+      console.log("Je suis la");
+      smallCreation4.innerText = "";
+      validationCheckBoxCheck = true;
+      validationDuBoutton();
+    } else {
+      townCheckbox[0].insertAdjacentElement("afterend", smallCreation4);
+      smallCreation4.style.color = "red";
+      smallCreation4.style.fontSize = "small";
+      smallCreation4.innerHTML = "<br> Veuillez accepter les conditions d'utilisation";
+      validationCheckBoxCheck = false;
+      validationDuBoutton();
+    }
+  });
+}
+validationTownCheckBox();
+
 // fonction de validation final
 function validationDuBoutton() {
   console.log(
@@ -143,7 +166,8 @@ function validationDuBoutton() {
     validationNomCheck == false ||
     validationEmailCheck == false ||
     validationCheckBoxCheck == false ||
-    validationGamonQuantityCheck == false
+    validationGamonQuantityCheck == false ||
+    validationTownCheckBoxCheck == false
   ) {
     bouttonCParti.disabled = true;
     bouttonCParti.insertAdjacentElement("afterend", smallCreation6);
@@ -155,7 +179,8 @@ function validationDuBoutton() {
     validationNomCheck == true &&
     validationEmailCheck == true &&
     validationCheckBoxCheck == true &&
-    validationGamonQuantityCheck == true
+    validationGamonQuantityCheck == true &&
+    validationTownCheckBoxCheck == true
   ) {
     bouttonCParti.disabled = false;
     smallCreation6.style.color = "green";
