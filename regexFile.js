@@ -19,8 +19,6 @@ let bouttonCParti = document.getElementsByClassName("btn-submit")[0];
 let numberOfGameon = document.getElementById("quantity");
 let boutonModal = document.querySelector("button");
 
-console.log(bouttonCParti);
-console.log(boutonModal);
 // liste des regex
 let regexFirstName =
   /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
@@ -34,6 +32,7 @@ let smallCreation2 = document.createElement("small");
 let smallCreation3 = document.createElement("small");
 let smallCreation4 = document.createElement("small");
 let smallCreation5 = document.createElement("small");
+let smallCreation6 = document.createElement("small");
 
 // fonction de validation pour le prenom
 function validationPrenom() {
@@ -72,7 +71,7 @@ function validationNom() {
 }
 validationNom();
 
-// fonction de validation pour le nom
+// fonction de validation pour le Mail
 function validationMail() {
   inputEmail.addEventListener("change", function () {
     if (regexEmail.test(inputEmail.value)) {
@@ -114,7 +113,7 @@ validationCheckBox();
 function validationGamonQuantity() {
   numberOfGameon.addEventListener("change", function () {
     console.log(numberOfGameon.value);
-    if (numberOfGameon.value < 0 || numberOfGameon.value > 99) {
+    if (numberOfGameon.value <= -1 || numberOfGameon.value >= 100) {
       numberOfGameon.insertAdjacentElement("afterend", smallCreation5);
       smallCreation5.style.color = "red";
       smallCreation5.style.fontSize = "small";
@@ -147,10 +146,10 @@ function validationDuBoutton() {
     validationGamonQuantityCheck == false
   ) {
     bouttonCParti.disabled = true;
-    bouttonCParti.insertAdjacentElement("afterend", smallCreation5);
-    smallCreation5.style.color = "white";
-    smallCreation5.style.fontSize = "small";
-    smallCreation5.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
+    bouttonCParti.insertAdjacentElement("afterend", smallCreation6);
+    smallCreation6.style.color = "white";
+    smallCreation6.style.fontSize = "small";
+    smallCreation6.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
   } else if (
     validationPrenomCheck == true &&
     validationNomCheck == true &&
@@ -159,9 +158,9 @@ function validationDuBoutton() {
     validationGamonQuantityCheck == true
   ) {
     bouttonCParti.disabled = false;
-    smallCreation5.style.color = "green";
-    smallCreation5.style.fontSize = "small";
-    smallCreation5.innerText = "Votre formulaire est valide !";
+    smallCreation6.style.color = "green";
+    smallCreation6.style.fontSize = "small";
+    smallCreation6.innerText = "Votre formulaire est valide !";
   }
 }
 validationDuBoutton();
