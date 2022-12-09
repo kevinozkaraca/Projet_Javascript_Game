@@ -15,13 +15,12 @@ let inputPrenom = document.getElementById("first");
 let inputNom = document.getElementById("last");
 let inputEmail = document.getElementById("email");
 let checkbox01 = document.getElementById("checkbox1");
-let townCheckbox = document.getElementsByClassName("checkbox-icon");
+let townCheckbox = document.getElementsByClassName("checkbox-input");
+let townFormData = document.getElementsByClassName("formData")[6];
 let bouttonCParti = document.getElementsByClassName("btn-submit")[0];
 let numberOfGameon = document.getElementById("quantity");
 let boutonModal = document.querySelector("button");
 
-console.log(townCheckbox);
-console.log(townCheckbox[0]);
 // liste des regex
 let regexFirstName =
   /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
@@ -48,7 +47,7 @@ function validationPrenom() {
       inputPrenom.insertAdjacentElement("afterend", smallCreation1);
       smallCreation1.style.color = "red";
       smallCreation1.style.fontSize = "small";
-      smallCreation1.innerText = "En attente d'une entrée valide";
+      smallCreation1.innerText = "Veuillez séléctionner une ville";
       validationDuBoutton();
     }
   });
@@ -133,22 +132,14 @@ validationGamonQuantity();
 
 // fonction de validation pour la checkbox Ville
 function validationTownCheckBox() {
-  townCheckbox[0].addEventListener("change", function () {
-    console.log("Je suis li");
-    if (this.checked) {
-      console.log("Je suis la");
-      smallCreation4.innerText = "";
-      validationCheckBoxCheck = true;
-      validationDuBoutton();
-    } else {
-      townCheckbox[0].insertAdjacentElement("afterend", smallCreation4);
-      smallCreation4.style.color = "red";
-      smallCreation4.style.fontSize = "small";
-      smallCreation4.innerHTML = "<br> Veuillez accepter les conditions d'utilisation";
-      validationCheckBoxCheck = false;
-      validationDuBoutton();
-    }
-  });
+  for (i = 0; i < 6; i++) {
+    townCheckbox[i].addEventListener("change", function () {
+      if (this.checked) {
+        validationTownCheckBoxCheck = true;
+        validationDuBoutton();
+      }
+    });
+  }
 }
 validationTownCheckBox();
 
@@ -159,7 +150,8 @@ function validationDuBoutton() {
     validationNomCheck,
     validationEmailCheck,
     validationCheckBoxCheck,
-    validationGamonQuantityCheck
+    validationGamonQuantityCheck,
+    validationTownCheckBoxCheck
   );
   if (
     validationPrenomCheck == false ||
