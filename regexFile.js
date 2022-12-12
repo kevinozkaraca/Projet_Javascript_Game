@@ -3,23 +3,34 @@
 -----------------------------------------*/
 
 // variable à checker pour la validation du formulaire
-let validationPrenomCheck = false;
-let validationNomCheck = false;
-let validationEmailCheck = false;
-let validationCheckBoxCheck = false;
-let validationTownCheckBoxCheck = false;
-let validationGamonQuantityCheck = false;
+let validationFirstName = false;
+let validationLastName = false;
+let validationEmail = false;
+let validationCheckBox = false;
+let validationTown = false;
+let validationGamonQuantity = false;
 
-//ciblage des éléments :
-let inputPrenom = document.getElementById("first");
-let inputNom = document.getElementById("last");
+// ciblage des éléments
+let inputFirstName = document.getElementById("first");
+let inputLastName = document.getElementById("last");
 let inputEmail = document.getElementById("email");
 let checkbox01 = document.getElementById("checkbox1");
+let labelConditionsCheckbox = document.getElementsByClassName("checkbox2-label")[0];
 let townCheckbox = document.getElementsByClassName("checkbox-input");
 let townFormData = document.getElementsByClassName("formData")[6];
-let bouttonCParti = document.getElementsByClassName("btn-submit")[0];
+let submitButton = document.getElementsByClassName("btn-submit")[0];
 let numberOfGameon = document.getElementById("quantity");
-let boutonModal = document.querySelector("button");
+let modalButton = document.querySelector("button");
+
+// Tableau des vérifications
+let validationArray = [
+  validationFirstName,
+  validationLastName,
+  validationEmail,
+  validationCheckBox,
+  validationGamonQuantity,
+  validationTown,
+];
 
 // liste des regex
 let regexFirstName =
@@ -29,157 +40,143 @@ let regexLastName =
 let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 // creation de la balise en cas de probleme
-let smallCreation1 = document.createElement("small");
-let smallCreation2 = document.createElement("small");
-let smallCreation3 = document.createElement("small");
-let smallCreation4 = document.createElement("small");
-let smallCreation5 = document.createElement("small");
-let smallCreation6 = document.createElement("small");
+let smallCreationFirstName = document.createElement("small");
+let smallCreationLastName = document.createElement("small");
+let smallCreationMail = document.createElement("small");
+let smallCreationCheckbox = document.createElement("small");
+let smallCreationGameonQuantity = document.createElement("small");
+let smallCreationModalValidation = document.createElement("small");
 
 // fonction de validation pour le prenom
-function validationPrenom() {
-  inputPrenom.addEventListener("change", function () {
-    if (regexFirstName.test(inputPrenom.value)) {
-      smallCreation1.innerText = "";
-      validationPrenomCheck = true;
-      validationDuBoutton();
+function functionFirstName() {
+  inputFirstName.addEventListener("change", function () {
+    if (regexFirstName.test(inputFirstName.value)) {
+      smallCreationFirstName.innerText = "";
+      validationFirstName = true;
+      functionValidation();
     } else {
-      inputPrenom.insertAdjacentElement("afterend", smallCreation1);
-      smallCreation1.style.color = "red";
-      smallCreation1.style.fontSize = "small";
-      smallCreation1.innerText = "Veuillez séléctionner une ville";
-      validationDuBoutton();
+      inputFirstName.insertAdjacentElement("afterend", smallCreationFirstName);
+      smallCreationFirstName.style.color = "red";
+      smallCreationFirstName.style.fontSize = "small";
+      smallCreationFirstName.innerText = "En attente d'une entrée valide";
+      functionValidation();
     }
   });
 }
-validationPrenom();
+functionFirstName();
 
 // fonction de validation pour le nom
-function validationNom() {
-  inputNom.addEventListener("change", function () {
-    if (regexLastName.test(inputNom.value)) {
-      smallCreation2.innerText = "";
-      validationNomCheck = true;
-      validationDuBoutton();
+function functionLastName() {
+  inputLastName.addEventListener("change", function () {
+    if (regexLastName.test(inputLastName.value)) {
+      smallCreationLastName.innerText = "";
+      validationLastName = true;
+      functionValidation();
     } else {
-      inputNom.insertAdjacentElement("afterend", smallCreation2);
-      smallCreation2.style.color = "red";
-      smallCreation2.style.fontSize = "small";
-      smallCreation2.innerText = "En attente d'une entrée valide";
-      validationNomCheck = false;
-      validationDuBoutton();
+      inputLastName.insertAdjacentElement("afterend", smallCreationLastName);
+      smallCreationLastName.style.color = "red";
+      smallCreationLastName.style.fontSize = "small";
+      smallCreationLastName.innerText = "En attente d'une entrée valide";
+      validationLastName = false;
+      functionValidation();
     }
   });
 }
-validationNom();
+functionLastName();
 
 // fonction de validation pour le Mail
-function validationMail() {
+function functionEmail() {
   inputEmail.addEventListener("change", function () {
     if (regexEmail.test(inputEmail.value)) {
-      smallCreation3.innerText = "";
-      validationEmailCheck = true;
-      validationDuBoutton();
+      smallCreationMail.innerText = "";
+      validationEmail = true;
+      functionValidation();
     } else {
-      inputEmail.insertAdjacentElement("afterend", smallCreation3);
-      smallCreation3.style.color = "red";
-      smallCreation3.style.fontSize = "small";
-      smallCreation3.innerText = "En attente d'une entrée valide";
-      validationNomCheck = false;
-      validationDuBoutton();
+      inputEmail.insertAdjacentElement("afterend", smallCreationMail);
+      smallCreationMail.style.color = "red";
+      smallCreationMail.style.fontSize = "small";
+      smallCreationMail.innerText = "En attente d'une entrée valide";
+      validationLastName = false;
+      functionValidation();
     }
   });
 }
-validationMail();
+functionEmail();
 
 // fonction de validation pour la checkbox
-function validationCheckBox() {
+function FunctionCheckbox() {
   checkbox01.addEventListener("change", function () {
     if (this.checked) {
-      smallCreation4.innerText = "";
-      validationCheckBoxCheck = true;
-      validationDuBoutton();
+      smallCreationCheckbox.innerText = "";
+      validationCheckBox = true;
+      functionValidation();
     } else {
-      labelCheckbox01.insertAdjacentElement("afterend", smallCreation4);
-      smallCreation4.style.color = "red";
-      smallCreation4.style.fontSize = "small";
-      smallCreation4.innerHTML = "<br> Veuillez accepter les conditions d'utilisation";
-      validationCheckBoxCheck = false;
-      validationDuBoutton();
+      labelConditionsCheckbox.insertAdjacentElement("afterend", smallCreationCheckbox);
+      smallCreationCheckbox.style.color = "red";
+      smallCreationCheckbox.style.fontSize = "small";
+      smallCreationCheckbox.innerHTML = "<br> Veuillez accepter les conditions d'utilisation";
+      validationCheckBox = false;
+      functionValidation();
     }
   });
 }
-validationCheckBox();
+FunctionCheckbox();
 
 // fonction de validation de la quantité de tournoi
-function validationGamonQuantity() {
+function functionGamonQuantity() {
   numberOfGameon.addEventListener("change", function () {
     if (numberOfGameon.value <= -1 || numberOfGameon.value >= 100) {
-      numberOfGameon.insertAdjacentElement("afterend", smallCreation5);
-      smallCreation5.style.color = "red";
-      smallCreation5.style.fontSize = "small";
-      smallCreation5.innerText = "Veuillez saisir un nombre en 0 et 99";
-      validationGamonQuantityCheck = false;
-      validationDuBoutton();
+      numberOfGameon.insertAdjacentElement("afterend", smallCreationGameonQuantity);
+      smallCreationGameonQuantity.style.color = "red";
+      smallCreationGameonQuantity.style.fontSize = "small";
+      smallCreationGameonQuantity.innerText = "Veuillez saisir un nombre en 0 et 99";
+      validationGamonQuantity = false;
+      functionValidation();
     } else {
-      smallCreation4.innerText = "";
-      validationGamonQuantityCheck = true;
-      validationDuBoutton();
+      smallCreationGameonQuantity.innerText = "";
+      validationGamonQuantity = true;
+      functionValidation();
     }
   });
 }
-validationGamonQuantity();
+functionGamonQuantity();
 
 // fonction de validation pour la checkbox Ville
-function validationTownCheckBox() {
+function functionTown() {
   for (i = 0; i < 6; i++) {
     townCheckbox[i].addEventListener("change", function () {
       if (this.checked) {
-        validationTownCheckBoxCheck = true;
-        validationDuBoutton();
+        validationTown = true;
+        functionValidation();
       }
     });
   }
 }
-validationTownCheckBox();
+functionTown();
 
 // fonction de validation final
-function validationDuBoutton() {
+function functionValidation() {
   console.log(
-    validationPrenomCheck,
-    validationNomCheck,
-    validationEmailCheck,
-    validationCheckBoxCheck,
-    validationGamonQuantityCheck,
-    validationTownCheckBoxCheck
+    validationFirstName,
+    validationLastName,
+    validationEmail,
+    validationCheckBox,
+    validationGamonQuantity,
+    validationTown
   );
-  if (
-    validationPrenomCheck == false ||
-    validationNomCheck == false ||
-    validationEmailCheck == false ||
-    validationCheckBoxCheck == false ||
-    validationGamonQuantityCheck == false ||
-    validationTownCheckBoxCheck == false
-  ) {
-    bouttonCParti.disabled = true;
-    bouttonCParti.insertAdjacentElement("afterend", smallCreation6);
-    smallCreation6.style.color = "white";
-    smallCreation6.style.fontSize = "small";
-    smallCreation6.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
-  } else if (
-    validationPrenomCheck == true &&
-    validationNomCheck == true &&
-    validationEmailCheck == true &&
-    validationCheckBoxCheck == true &&
-    validationGamonQuantityCheck == true &&
-    validationTownCheckBoxCheck == true
-  ) {
-    bouttonCParti.disabled = false;
-    smallCreation6.style.color = "green";
-    smallCreation6.style.fontSize = "small";
-    smallCreation6.innerText = "Votre formulaire est valide !";
+  if (validationArray.some(Boolean) == false) {
+    submitButton.disabled = true;
+    submitButton.insertAdjacentElement("afterend", smallCreationModalValidation);
+    smallCreationModalValidation.style.color = "white";
+    smallCreationModalValidation.style.fontSize = "small";
+    smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
+  }
+  if (validationArray.every(Boolean) == true) {
+    console.log("dkfjhqm");
+    submitButton.disabled = false;
+    smallCreationModalValidation.style.color = "green";
+    smallCreationModalValidation.style.fontSize = "small";
+    smallCreationModalValidation.innerText = "Votre formulaire est valide !";
   }
 }
-validationDuBoutton();
-
-// Finir la validation du lieu !
+functionValidation();
