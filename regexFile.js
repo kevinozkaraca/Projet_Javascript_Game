@@ -22,16 +22,6 @@ let submitButton = document.getElementsByClassName("btn-submit")[0];
 let numberOfGameon = document.getElementById("quantity");
 let modalButton = document.querySelector("button");
 
-// Tableau des vérifications
-let validationArray = [
-  validationFirstName,
-  validationLastName,
-  validationEmail,
-  validationCheckBox,
-  validationGamonQuantity,
-  validationTown,
-];
-
 // liste des regex
 let regexFirstName =
   /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
@@ -154,6 +144,16 @@ function functionTown() {
 }
 functionTown();
 
+// Tableau des vérifications
+let validationArray = [
+  validationFirstName,
+  validationLastName,
+  validationEmail,
+  validationCheckBox,
+  validationGamonQuantity,
+  validationTown,
+];
+
 // fonction de validation final
 function functionValidation() {
   console.log(
@@ -164,15 +164,18 @@ function functionValidation() {
     validationGamonQuantity,
     validationTown
   );
-  if (validationArray.some(Boolean) == false) {
+  //------------------------------------
+  // A corriger
+  //------------------------------
+  if (validationArray.some(condictionFalse)) {
     submitButton.disabled = true;
     submitButton.insertAdjacentElement("afterend", smallCreationModalValidation);
     smallCreationModalValidation.style.color = "white";
     smallCreationModalValidation.style.fontSize = "small";
     smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
   }
-  if (validationArray.every(Boolean) == true) {
-    console.log("dkfjhqm");
+
+  if (validationArray.every(condictionTrue)) {
     submitButton.disabled = false;
     smallCreationModalValidation.style.color = "green";
     smallCreationModalValidation.style.fontSize = "small";
