@@ -40,7 +40,7 @@ let smallCreationModalValidation = document.createElement("small");
 // fonction de validation pour le prenom
 function functionFirstName() {
   inputFirstName.addEventListener("change", function () {
-    if (regexFirstName.test(inputFirstName.value)) {
+    if (regexFirstName.test(inputFirstName.value) && inputFirstName.value.length >= 2) {
       smallCreationFirstName.innerText = "";
       validationFirstName = 1;
       functionValidation();
@@ -50,6 +50,11 @@ function functionFirstName() {
       smallCreationFirstName.style.fontSize = "small";
       smallCreationFirstName.innerText = "En attente d'une entrée valide";
       validationFirstName = 0;
+      submitButton.disabled = true;
+      submitButton.insertAdjacentElement("afterend", smallCreationModalValidation);
+      smallCreationModalValidation.style.color = "white";
+      smallCreationModalValidation.style.fontSize = "small";
+      smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
       functionValidation();
     }
   });
@@ -59,7 +64,7 @@ functionFirstName();
 // fonction de validation pour le nom
 function functionLastName() {
   inputLastName.addEventListener("change", function () {
-    if (regexLastName.test(inputLastName.value)) {
+    if (regexLastName.test(inputLastName.value) && inputLastName.value.length >= 2) {
       smallCreationLastName.innerText = "";
       validationLastName = 1;
       functionValidation();
@@ -69,6 +74,11 @@ function functionLastName() {
       smallCreationLastName.style.fontSize = "small";
       smallCreationLastName.innerText = "En attente d'une entrée valide";
       validationLastName = 0;
+      submitButton.disabled = true;
+      submitButton.insertAdjacentElement("afterend", smallCreationModalValidation);
+      smallCreationModalValidation.style.color = "white";
+      smallCreationModalValidation.style.fontSize = "small";
+      smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
       functionValidation();
     }
   });
@@ -88,6 +98,11 @@ function functionEmail() {
       smallCreationMail.style.fontSize = "small";
       smallCreationMail.innerText = "En attente d'une entrée valide";
       validationLastName = 0;
+      submitButton.disabled = true;
+      submitButton.insertAdjacentElement("afterend", smallCreationModalValidation);
+      smallCreationModalValidation.style.color = "white";
+      smallCreationModalValidation.style.fontSize = "small";
+      smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
       functionValidation();
     }
   });
@@ -107,6 +122,11 @@ function FunctionCheckbox() {
       smallCreationCheckbox.style.fontSize = "small";
       smallCreationCheckbox.innerHTML = "<br> Veuillez accepter les conditions d'utilisation";
       validationCheckBox = 0;
+      submitButton.disabled = true;
+      submitButton.insertAdjacentElement("afterend", smallCreationModalValidation);
+      smallCreationModalValidation.style.color = "white";
+      smallCreationModalValidation.style.fontSize = "small";
+      smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
       functionValidation();
     }
   });
@@ -122,6 +142,11 @@ function functionGamonQuantity() {
       smallCreationGameonQuantity.style.fontSize = "small";
       smallCreationGameonQuantity.innerText = "Veuillez saisir un nombre en 0 et 99";
       validationGamonQuantity = 0;
+      submitButton.disabled = true;
+      submitButton.insertAdjacentElement("afterend", smallCreationModalValidation);
+      smallCreationModalValidation.style.color = "white";
+      smallCreationModalValidation.style.fontSize = "small";
+      smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
       functionValidation();
     } else {
       smallCreationGameonQuantity.innerText = "";
