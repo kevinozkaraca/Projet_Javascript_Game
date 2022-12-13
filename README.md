@@ -8,29 +8,29 @@
 
 ## Tache :
 
-🔴 Tests manuels :
+🔴 Tests manuels
 
 Visualiser et tester l'interface utilisateur dans les dernières versions de Chrome et de Firefox, ainsi que dans les versions mobile et desktop. Corriger les erreurs d'affichage existantes.
 
 Tester toutes les fonctionnalités des boutons et des entrées de formulaire (tester les valeurs correctes et incorrectes)
 
-🔴 Ajouter confirmation quand envoi réussi :
+🔴 Ajouter confirmation quand envoi réussi
 
 Après une validation réussie, inclure un message de confirmation de la soumission réussie pour l'utilisateur (ex. "Merci ! Votre réservation a été reçue.")
 
-🔴 Ajouter validation ou messages d'erreur :
+🔴 Ajouter validation ou messages d'erreur
 
 Des messages d'erreur spécifiques doivent apparaître sous l'entrée qui n'est pas correcte. Les messages d'erreur doivent s'afficher sous le champ de saisie associé. Exemples :
 
-"Veuillez entrer 2 caractères ou plus pour le champ du nom."
-"Vous devez choisir une option."
-"Vous devez vérifier que vous acceptez les termes et conditions."
-"Vous devez entrer votre date de naissance."
+- "Veuillez entrer 2 caractères ou plus pour le champ du nom."
+- "Vous devez choisir une option."
+- "Vous devez vérifier que vous acceptez les termes et conditions."
+- "Vous devez entrer votre date de naissance."
 
-🔴 Implémenter entrées du formulaire :
+🔴 Implémenter entrées du formulaire
 
 - (1) Lier les labels aux entrées dans le HTML en utilisant les attributs "for" et "id" dans le code existant. Corriger le code HTML quand nécessaire.
-- (2) Utiliser du JavaScript pur (pas de jQuery) pour terminer le formulaire :
+- (2) Utiliser du JavaScript pur (pas de jQuery) pour terminer le formulaire
 
 Le formulaire doit être valide quand l'utilisateur clique sur "Submit"
 Les données doivent être saisies correctement
@@ -108,6 +108,14 @@ width= 80%
 ## Ajouter confirmation quand envoi réussi :
 
 ## Ajouter validation ou messages d'erreur :
+
+<p align="center">
+<img 
+class="IMGlink"
+src="./imagesReadme/007.jpg"
+width= 80%
+        />
+</p>
 
 ## Implémenter entrées du formulaire :
 
