@@ -3,12 +3,12 @@
 -----------------------------------------*/
 
 // variable à checker pour la validation du formulaire
-let validationFirstName = false;
-let validationLastName = false;
-let validationEmail = false;
-let validationCheckBox = false;
-let validationTown = false;
-let validationGamonQuantity = false;
+let validationFirstName = 0;
+let validationLastName = 0;
+let validationEmail = 0;
+let validationCheckBox = 0;
+let validationTown = 0;
+let validationGamonQuantity = 0;
 
 // ciblage des éléments
 let inputFirstName = document.getElementById("first");
@@ -42,13 +42,14 @@ function functionFirstName() {
   inputFirstName.addEventListener("change", function () {
     if (regexFirstName.test(inputFirstName.value)) {
       smallCreationFirstName.innerText = "";
-      validationFirstName = true;
+      validationFirstName = 1;
       functionValidation();
     } else {
       inputFirstName.insertAdjacentElement("afterend", smallCreationFirstName);
       smallCreationFirstName.style.color = "red";
       smallCreationFirstName.style.fontSize = "small";
       smallCreationFirstName.innerText = "En attente d'une entrée valide";
+      validationFirstName = 0;
       functionValidation();
     }
   });
@@ -60,14 +61,14 @@ function functionLastName() {
   inputLastName.addEventListener("change", function () {
     if (regexLastName.test(inputLastName.value)) {
       smallCreationLastName.innerText = "";
-      validationLastName = true;
+      validationLastName = 1;
       functionValidation();
     } else {
       inputLastName.insertAdjacentElement("afterend", smallCreationLastName);
       smallCreationLastName.style.color = "red";
       smallCreationLastName.style.fontSize = "small";
       smallCreationLastName.innerText = "En attente d'une entrée valide";
-      validationLastName = false;
+      validationLastName = 0;
       functionValidation();
     }
   });
@@ -79,14 +80,14 @@ function functionEmail() {
   inputEmail.addEventListener("change", function () {
     if (regexEmail.test(inputEmail.value)) {
       smallCreationMail.innerText = "";
-      validationEmail = true;
+      validationEmail = 1;
       functionValidation();
     } else {
       inputEmail.insertAdjacentElement("afterend", smallCreationMail);
       smallCreationMail.style.color = "red";
       smallCreationMail.style.fontSize = "small";
       smallCreationMail.innerText = "En attente d'une entrée valide";
-      validationLastName = false;
+      validationLastName = 0;
       functionValidation();
     }
   });
@@ -98,14 +99,14 @@ function FunctionCheckbox() {
   checkbox01.addEventListener("change", function () {
     if (this.checked) {
       smallCreationCheckbox.innerText = "";
-      validationCheckBox = true;
+      validationCheckBox = 1;
       functionValidation();
     } else {
       labelConditionsCheckbox.insertAdjacentElement("afterend", smallCreationCheckbox);
       smallCreationCheckbox.style.color = "red";
       smallCreationCheckbox.style.fontSize = "small";
       smallCreationCheckbox.innerHTML = "<br> Veuillez accepter les conditions d'utilisation";
-      validationCheckBox = false;
+      validationCheckBox = 0;
       functionValidation();
     }
   });
@@ -120,11 +121,11 @@ function functionGamonQuantity() {
       smallCreationGameonQuantity.style.color = "red";
       smallCreationGameonQuantity.style.fontSize = "small";
       smallCreationGameonQuantity.innerText = "Veuillez saisir un nombre en 0 et 99";
-      validationGamonQuantity = false;
+      validationGamonQuantity = 0;
       functionValidation();
     } else {
       smallCreationGameonQuantity.innerText = "";
-      validationGamonQuantity = true;
+      validationGamonQuantity = 1;
       functionValidation();
     }
   });
@@ -136,7 +137,7 @@ function functionTown() {
   for (i = 0; i < 6; i++) {
     townCheckbox[i].addEventListener("change", function () {
       if (this.checked) {
-        validationTown = true;
+        validationTown = 1;
         functionValidation();
       }
     });
@@ -144,30 +145,24 @@ function functionTown() {
 }
 functionTown();
 
-// Tableau des vérifications
-let validationArray = [
-  validationFirstName,
-  validationLastName,
-  validationEmail,
-  validationCheckBox,
-  validationGamonQuantity,
-  validationTown,
-];
-
 // fonction de validation final
 function functionValidation() {
-  console.log(
+  // Tableau des validations
+  let validationArray = [
     validationFirstName,
     validationLastName,
     validationEmail,
     validationCheckBox,
     validationGamonQuantity,
-    validationTown
-  );
-  //------------------------------------
-  // A corriger
-  //------------------------------
-  if (validationArray.some(condictionFalse)) {
+    validationTown,
+  ];
+
+  // conditions pour la validation
+  function condictionTrueFalse(e) {
+    return e == 1;
+  }
+
+  if (validationArray.some(condictionTrueFalse) == false) {
     submitButton.disabled = true;
     submitButton.insertAdjacentElement("afterend", smallCreationModalValidation);
     smallCreationModalValidation.style.color = "white";
@@ -175,7 +170,7 @@ function functionValidation() {
     smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
   }
 
-  if (validationArray.every(condictionTrue)) {
+  if (validationArray.every(condictionTrueFalse) == true) {
     submitButton.disabled = false;
     smallCreationModalValidation.style.color = "green";
     smallCreationModalValidation.style.fontSize = "small";
