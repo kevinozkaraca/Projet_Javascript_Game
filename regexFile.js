@@ -186,6 +186,9 @@ function functionValidation() {
   function condictionTrueFalse(e) {
     return e == 1;
   }
+  // Fenetre modal de confirmation d'envoi des données
+  let modalConfirmation = document.getElementById("modalConfirmation");
+  let modalForm = document.getElementsByClassName("bground")[0];
 
   if (validationArray.some(condictionTrueFalse) == false) {
     submitButton.disabled = true;
@@ -193,6 +196,7 @@ function functionValidation() {
     smallCreationModalValidation.style.color = "white";
     smallCreationModalValidation.style.fontSize = "small";
     smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
+    modalConfirmation.style.visibility = "hidden";
   }
 
   if (validationArray.every(condictionTrueFalse) == true) {
@@ -200,6 +204,11 @@ function functionValidation() {
     smallCreationModalValidation.style.color = "green";
     smallCreationModalValidation.style.fontSize = "small";
     smallCreationModalValidation.innerText = "Votre formulaire est valide !";
+    submitButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      modalConfirmation.style.visibility = "visible";
+      modalForm.style.visibility = "hidden";
+    });
   }
 }
 functionValidation();

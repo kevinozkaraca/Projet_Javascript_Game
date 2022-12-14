@@ -105,7 +105,17 @@ width= 80%
         />
 </p>
 
+- Une faute d'ortographe et une div en trop dans le code
+
 ## Ajouter confirmation quand envoi réussi :
+
+<p align="center">
+<img 
+class="IMGlink"
+src="./imagesReadme/008.jpg"
+width= 80%
+        />
+</p>
 
 ## Ajouter validation ou messages d'erreur :
 

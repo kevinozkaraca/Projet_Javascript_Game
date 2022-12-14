@@ -551,3 +551,40 @@ Changement de comportement pour la barre de navigation, le titre et l'image
     font-size: 1.1rem;
   }
 }
+@media (min-width: 200px) and (max-width: 600px) {
+  .hero-headline {
+    font-size: 2.5rem;
+    width: 80%;
+  }
+  .hero-text {
+    font-size: 1rem;
+    width: 70%;
+  }
+  .hero-content {
+    width: 90%;
+  }
+  .hero-img img {
+    overflow: hidden;
+  }
+  .main-navbar span {
+    font-size: 0.8rem;
+  }
+}
+/*
+Fenetre modal de confirmation d'envoi des données
+*/
+
+#modalConfirmation {
+  position: absolute;
+  margin-top: 450px;
+  padding: 10px;
+  width: 40%;
+  background-color: #279e7a;
+  color: #fff;
+  border-radius: 0px 5px 5px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  visibility: hidden;
+}
