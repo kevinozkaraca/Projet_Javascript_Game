@@ -1,5 +1,7 @@
 # Projet de formation
 
+## Lien du site une fois fini : https://kevinozkaraca.github.io/Projet_Javascript_Game/
+
 ## Instructions :
 
 - utiliser des fichiers séparés pour le HTML, le CSS et le JavaScript ;

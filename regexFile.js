@@ -181,7 +181,6 @@ function functionValidation() {
     validationGamonQuantity,
     validationTown,
   ];
-
   // conditions pour la validation
   function condictionTrueFalse(e) {
     return e == 1;
@@ -204,6 +203,7 @@ function functionValidation() {
     smallCreationModalValidation.style.color = "green";
     smallCreationModalValidation.style.fontSize = "small";
     smallCreationModalValidation.innerText = "Votre formulaire est valide !";
+    // Affichage de la modal de confirmation
     submitButton.addEventListener("click", function (e) {
       e.preventDefault();
       modalConfirmation.style.visibility = "visible";
