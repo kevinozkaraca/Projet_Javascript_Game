@@ -110,7 +110,7 @@ function functionEmail() {
 functionEmail();
 
 // fonction de validation pour la checkbox
-function FunctionCheckbox() {
+function functionCheckbox() {
   checkbox01.addEventListener("change", function () {
     if (this.checked) {
       smallCreationCheckbox.innerText = "";
@@ -131,7 +131,7 @@ function FunctionCheckbox() {
     }
   });
 }
-FunctionCheckbox();
+functionCheckbox();
 
 // fonction de validation de la quantité de tournoi
 function functionGamonQuantity() {

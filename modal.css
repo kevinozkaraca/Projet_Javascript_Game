@@ -78,36 +78,19 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
+    color: #f00;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .topnav.responsive {
-    position: relative;
-  }
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
+.header-logo {
+  width: 50%;
 }
-
-@media screen and (max-width: 540px) {
-  .topnav a {
-    display: none;
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
+img {
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 0px;
 }
-
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -171,11 +154,11 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .content {
-  margin: 5% auto;
+  margin: 80px auto;
   width: 100%;
   max-width: 500px;
   animation-name: modalopen;
@@ -410,13 +393,12 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   overflow: hidden;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 .hero-content {
   padding: 51px 67px;
@@ -489,9 +471,10 @@ footer {
     box-shadow: unset;
   }
   .hero-content {
-    background: #fff;
-    color: #000;
-    padding: 20px;
+    padding: 51px 0px;
+    background: #ffffff;
+    color: rgb(7, 7, 7);
+    text-align: left;
   }
   .hero-content::after {
     content: unset;
@@ -500,16 +483,18 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 10vw;
+    font-weight: 600;
     white-space: normal;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 3.4vw;
+    margin-top: 10px;
   }
   .hero-img img {
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 10px;
   }
   .hero-section > .btn-signup {
     display: block;
@@ -521,7 +506,54 @@ footer {
     text-align: center;
   }
 }
+@media screen and (max-width: 768px) {
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
 
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .topnav {
+    background-color: #fff;
+  }
+  .topnav a {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+    color: #f00;
+  }
+  .hero-content {
+    margin-top: 0;
+    margin-bottom: 30px;
+    padding: 0;
+  }
+  .btn-signup modal-btn {
+    margin: 0;
+    padding: 0;
+  }
+  footer {
+    margin: 0;
+    padding: 0;
+  }
+  footer .copyrights {
+    margin: 0 0 20px 0px;
+    font-size: small;
+    padding: 0;
+  }
+}
 @keyframes modalopen {
   from {
     opacity: 0;
@@ -539,7 +571,7 @@ Partie codée par l'étudiant
 /*
 Changement de comportement pour la barre de navigation, le titre et l'image 
 */
-
+/*
 @media (min-width: 750px) and (max-width: 1000px) {
   .hero-headline {
     font-size: 4.5rem;
@@ -553,8 +585,8 @@ Changement de comportement pour la barre de navigation, le titre et l'image
 }
 @media (min-width: 200px) and (max-width: 600px) {
   .hero-headline {
-    font-size: 2.5rem;
-    width: 80%;
+    font-size: 2rem;
+    width: 100%;
   }
   .hero-text {
     font-size: 1rem;
@@ -569,7 +601,9 @@ Changement de comportement pour la barre de navigation, le titre et l'image
   .main-navbar span {
     font-size: 0.8rem;
   }
-}
+} 
+*/
+
 /*
 Fenetre modal de confirmation d'envoi des données
 */
