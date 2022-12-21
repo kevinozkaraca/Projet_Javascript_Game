@@ -55,6 +55,7 @@ function functionFirstName() {
       smallCreationModalValidation.style.color = "white";
       smallCreationModalValidation.style.fontSize = "small";
       smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
+      inputFirstName.style.borderColor = "red";
       functionValidation();
     }
   });
@@ -79,6 +80,7 @@ function functionLastName() {
       smallCreationModalValidation.style.color = "white";
       smallCreationModalValidation.style.fontSize = "small";
       smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
+      inputLastName.style.borderColor = "red";
       functionValidation();
     }
   });
@@ -103,6 +105,7 @@ function functionEmail() {
       smallCreationModalValidation.style.color = "white";
       smallCreationModalValidation.style.fontSize = "small";
       smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
+      inputEmail.style.borderColor = "red";
       functionValidation();
     }
   });
@@ -147,6 +150,7 @@ function functionGamonQuantity() {
       smallCreationModalValidation.style.color = "white";
       smallCreationModalValidation.style.fontSize = "small";
       smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
+      numberOfGameon.style.borderColor = "red";
       functionValidation();
     } else {
       smallCreationGameonQuantity.innerText = "";
