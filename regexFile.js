@@ -11,16 +11,18 @@ let validationTown = 0;
 let validationGamonQuantity = 0;
 
 // ciblage des éléments
-let inputFirstName = document.getElementById("first");
-let inputLastName = document.getElementById("last");
-let inputEmail = document.getElementById("email");
-let checkbox01 = document.getElementById("checkbox1");
-let labelConditionsCheckbox = document.getElementsByClassName("checkbox2-label")[0];
-let townCheckbox = document.getElementsByClassName("checkbox-input");
-let townFormData = document.getElementsByClassName("formData")[6];
-let submitButton = document.getElementsByClassName("btn-submit")[0];
-let numberOfGameon = document.getElementById("quantity");
-let modalButton = document.querySelector("button");
+const inputLastName = document.getElementById("last");
+const inputEmail = document.getElementById("email");
+const checkbox01 = document.getElementById("checkbox1");
+const labelConditionsCheckbox = document.getElementsByClassName("checkbox2-label")[0];
+const townCheckbox = document.getElementsByClassName("checkbox-input");
+const townFormData = document.getElementsByClassName("formData")[6];
+const submitButton = document.getElementsByClassName("btn-submit")[0];
+const numberOfGameon = document.getElementById("quantity");
+const modalButton = document.getElementsByClassName("btn-submit")[0];
+const modalBody = document.getElementById("deletForm");
+const inputFirstName = document.getElementById("first");
+const allFormData = document.getElementsByClassName("formData");
 
 // liste des regex
 let regexFirstName =
@@ -43,6 +45,7 @@ function functionFirstName() {
     if (regexFirstName.test(inputFirstName.value) && inputFirstName.value.length >= 2) {
       smallCreationFirstName.innerText = "";
       validationFirstName = 1;
+      inputFirstName.style.borderColor = "white";
       functionValidation();
     } else {
       inputFirstName.insertAdjacentElement("afterend", smallCreationFirstName);
@@ -68,6 +71,7 @@ function functionLastName() {
     if (regexLastName.test(inputLastName.value) && inputLastName.value.length >= 2) {
       smallCreationLastName.innerText = "";
       validationLastName = 1;
+      inputLastName.style.borderColor = "white";
       functionValidation();
     } else {
       inputLastName.insertAdjacentElement("afterend", smallCreationLastName);
@@ -93,6 +97,7 @@ function functionEmail() {
     if (regexEmail.test(inputEmail.value)) {
       smallCreationMail.innerText = "";
       validationEmail = 1;
+      inputEmail.style.borderColor = "white";
       functionValidation();
     } else {
       inputEmail.insertAdjacentElement("afterend", smallCreationMail);
@@ -155,6 +160,7 @@ function functionGamonQuantity() {
     } else {
       smallCreationGameonQuantity.innerText = "";
       validationGamonQuantity = 1;
+      numberOfGameon.style.borderColor = "white";
       functionValidation();
     }
   });
@@ -199,7 +205,6 @@ function functionValidation() {
     smallCreationModalValidation.style.color = "white";
     smallCreationModalValidation.style.fontSize = "small";
     smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
-    modalConfirmation.style.visibility = "hidden";
   }
 
   if (validationArray.every(condictionTrueFalse) == true) {
@@ -210,8 +215,13 @@ function functionValidation() {
     // Affichage de la modal de confirmation
     submitButton.addEventListener("click", function (e) {
       e.preventDefault();
-      modalConfirmation.style.visibility = "visible";
-      modalForm.style.visibility = "hidden";
+      modalBody.style.visibility = "hidden";
+      modalButton.style.visibility = "visible";
+      modalButton.value = "Fermer";
+      if (modalButton.value == "Fermer" && e.target == submitButton) {
+        exitFromModal();
+      }
+      console.log(modalButton);
     });
   }
 }
