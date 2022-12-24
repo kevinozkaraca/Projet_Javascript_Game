@@ -573,3 +573,13 @@ footer {
     opacity: 1;
   }
 }
+/* fenettre de message de final*/
+
+#finalMSG {
+  height: 0px;
+  margin: auto;
+  text-align: center;
+  font-size: larger;
+  font-weight: 300;
+  visibility: hidden;
+}

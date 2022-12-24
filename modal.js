@@ -35,6 +35,10 @@ function exitFromModal(e) {
     // Variable "modalbg" récupéré dans le fichier fourni par le centre de formation
     modalbg.style.display = "none";
   }
+  if (e.target == submitButton) {
+    // Variable "modalbg" récupéré dans le fichier fourni par le centre de formation
+    modalbg.style.display = "none";
+  }
 }
 
 // quitte la fenetre au "click"

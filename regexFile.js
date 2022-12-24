@@ -23,6 +23,7 @@ const modalButton = document.getElementsByClassName("btn-submit")[0];
 const modalBody = document.getElementById("deletForm");
 const inputFirstName = document.getElementById("first");
 const allFormData = document.getElementsByClassName("formData");
+const finalMSG = document.getElementById("finalMSG");
 
 // liste des regex
 let regexFirstName =
@@ -191,14 +192,18 @@ function functionValidation() {
     validationGamonQuantity,
     validationTown,
   ];
+  console.log(
+    validationFirstName,
+    validationLastName,
+    validationEmail,
+    validationCheckBox,
+    validationGamonQuantity,
+    validationTown
+  );
   // conditions pour la validation
   function condictionTrueFalse(e) {
     return e == 1;
   }
-  // Fenetre modal de confirmation d'envoi des données
-  let modalConfirmation = document.getElementById("modalConfirmation");
-  let modalForm = document.getElementsByClassName("bground")[0];
-
   if (validationArray.some(condictionTrueFalse) == false) {
     submitButton.disabled = true;
     submitButton.insertAdjacentElement("afterend", smallCreationModalValidation);
@@ -206,7 +211,6 @@ function functionValidation() {
     smallCreationModalValidation.style.fontSize = "small";
     smallCreationModalValidation.innerText = "(*) Veuillez remplir les champs obligatoires ou les corriger";
   }
-
   if (validationArray.every(condictionTrueFalse) == true) {
     submitButton.disabled = false;
     smallCreationModalValidation.style.color = "green";
@@ -217,11 +221,14 @@ function functionValidation() {
       e.preventDefault();
       modalBody.style.visibility = "hidden";
       modalButton.style.visibility = "visible";
+      finalMSG.style.visibility = "visible";
       modalButton.value = "Fermer";
-      if (modalButton.value == "Fermer" && e.target == submitButton) {
-        exitFromModal();
+      // Une fois le boutton changé, le boutton change pour servir de fermeture comme la croix
+      if (modalButton.value == "Fermer") {
+        submitButton.addEventListener("click", function (e) {
+          exitFromModal(e);
+        });
       }
-      console.log(modalButton);
     });
   }
 }
