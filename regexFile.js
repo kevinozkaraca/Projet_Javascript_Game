@@ -26,6 +26,7 @@ const inputFirstName = document.getElementById("first");
 const allFormData = document.getElementsByClassName("formData");
 const finalMSG = document.getElementById("finalMSG");
 const dateInput = document.getElementsByClassName("text-control")[3];
+const checkboxContainer = document.getElementsByClassName("formData")[5];
 
 // liste des regex
 let regexFirstName =
@@ -194,6 +195,7 @@ function functionTown() {
       if (this.checked) {
         validationTown = 1;
         functionValidation();
+        0;
       }
     });
   }
@@ -228,30 +230,6 @@ function functionValidation() {
   }
 
   if (validationArray.some(condictionTrueFalse) == false) {
-    submitButton.addEventListener("click", function (e) {
-      if (!dateInput.value.length) {
-        submitButton.disabled = true;
-        numberOfGameon.insertAdjacentElement("afterend", smallCreationGameonQuantity);
-        smallCreationGameonQuantity.style.color = "red";
-        smallCreationGameonQuantity.style.fontSize = "small";
-        smallCreationGameonQuantity.innerText = "Veuillez saisir un nombre en 0 et 99";
-      }
-      if (
-        townCheckbox[0].checked == false &&
-        townCheckbox[1].checked == false &&
-        townCheckbox[2].checked == false &&
-        townCheckbox[3].checked == false &&
-        townCheckbox[4].checked == false &&
-        townCheckbox[5].checked == false
-      ) {
-        submitButton.disabled = true;
-        townCheckbox.insertAdjacentElement("afterend", smallCreationCheckbox);
-        smallCreationGameonQuantity.style.color = "red";
-        smallCreationGameonQuantity.style.fontSize = "small";
-        smallCreationGameonQuantity.innerText = "Veuillez saisir un nombre en 0 et 99";
-      }
-    });
-
     submitButton.insertAdjacentElement("afterend", smallCreationModalValidation);
     smallCreationModalValidation.style.color = "white";
     smallCreationModalValidation.style.fontSize = "small";
@@ -262,6 +240,11 @@ function functionValidation() {
     smallCreationModalValidation.style.color = "green";
     smallCreationModalValidation.style.fontSize = "small";
     smallCreationModalValidation.innerText = "Votre formulaire est valide !";
+    smallCreationDate.innerText = "";
+    validationDate = 1;
+    dateInput.style.borderColor = "white";
+    smallCreationCheckbox.innerText = "";
+    validationCheckBox = 1;
     // Affichage de la modal de confirmation
     submitButton.addEventListener("click", function (e) {
       e.preventDefault();
@@ -279,3 +262,32 @@ function functionValidation() {
   }
 }
 functionValidation();
+
+// condition sur la checkbox et la date
+submitButton.addEventListener("click", function (e) {
+  if (dateInput.value.length == 0) {
+    e.preventDefault();
+    dateInput.insertAdjacentElement("afterend", smallCreationDate);
+    dateInput.style.borderColor = "red";
+    smallCreationDate.style.color = "red";
+    smallCreationDate.style.fontSize = "small";
+    smallCreationDate.innerText = "Veuillez indiquer une date";
+  }
+});
+
+submitButton.addEventListener("click", function (e) {
+  if (
+    townCheckbox[0].checked == false &&
+    townCheckbox[1].checked == false &&
+    townCheckbox[2].checked == false &&
+    townCheckbox[3].checked == false &&
+    townCheckbox[4].checked == false &&
+    townCheckbox[5].checked == false
+  ) {
+    e.preventDefault();
+    checkboxContainer.insertAdjacentElement("afterend", smallCreationCheckbox);
+    smallCreationCheckbox.style.color = "red";
+    smallCreationCheckbox.style.fontSize = "small";
+    smallCreationCheckbox.innerText = "Veuillez choisir une ville";
+  }
+});
