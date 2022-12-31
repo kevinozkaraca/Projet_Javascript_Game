@@ -9,6 +9,7 @@ let validationEmail = 0;
 let validationCheckBox = 0;
 let validationTown = 0;
 let validationGamonQuantity = 0;
+let validationDate = 0;
 
 // ciblage des éléments
 const inputLastName = document.getElementById("last");
@@ -24,6 +25,7 @@ const modalBody = document.getElementById("deletForm");
 const inputFirstName = document.getElementById("first");
 const allFormData = document.getElementsByClassName("formData");
 const finalMSG = document.getElementById("finalMSG");
+const dateInput = document.getElementsByClassName("text-control")[3];
 
 // liste des regex
 let regexFirstName =
@@ -39,6 +41,7 @@ let smallCreationMail = document.createElement("small");
 let smallCreationCheckbox = document.createElement("small");
 let smallCreationGameonQuantity = document.createElement("small");
 let smallCreationModalValidation = document.createElement("small");
+let smallCreationDate = document.createElement("small");
 
 // fonction de validation pour le prenom
 function functionFirstName() {
@@ -52,7 +55,7 @@ function functionFirstName() {
       inputFirstName.insertAdjacentElement("afterend", smallCreationFirstName);
       smallCreationFirstName.style.color = "red";
       smallCreationFirstName.style.fontSize = "small";
-      smallCreationFirstName.innerText = "En attente d'une entrée valide";
+      smallCreationFirstName.innerText = "Un minimum de deux lettres est obligatoire";
       validationFirstName = 0;
       submitButton.disabled = true;
       submitButton.insertAdjacentElement("afterend", smallCreationModalValidation);
@@ -78,7 +81,7 @@ function functionLastName() {
       inputLastName.insertAdjacentElement("afterend", smallCreationLastName);
       smallCreationLastName.style.color = "red";
       smallCreationLastName.style.fontSize = "small";
-      smallCreationLastName.innerText = "En attente d'une entrée valide";
+      smallCreationLastName.innerText = "Un minimum de deux lettres est obligatoire";
       validationLastName = 0;
       submitButton.disabled = true;
       submitButton.insertAdjacentElement("afterend", smallCreationModalValidation);
@@ -104,7 +107,7 @@ function functionEmail() {
       inputEmail.insertAdjacentElement("afterend", smallCreationMail);
       smallCreationMail.style.color = "red";
       smallCreationMail.style.fontSize = "small";
-      smallCreationMail.innerText = "En attente d'une entrée valide";
+      smallCreationMail.innerText = "Veuillez entrer une adresse mail valide";
       validationLastName = 0;
       submitButton.disabled = true;
       submitButton.insertAdjacentElement("afterend", smallCreationModalValidation);
@@ -117,6 +120,22 @@ function functionEmail() {
   });
 }
 functionEmail();
+
+console.log(dateInput.value);
+
+// Fonction pour la validation de la date
+function functionDate() {
+  dateInput.addEventListener("change", function () {
+    if (dateInput.value.length) {
+      validationDate = 1;
+      functionValidation();
+    } else {
+      console.log("non");
+      functionValidation();
+    }
+  });
+}
+functionDate();
 
 // fonction de validation pour la checkbox
 function functionCheckbox() {
@@ -191,21 +210,48 @@ function functionValidation() {
     validationCheckBox,
     validationGamonQuantity,
     validationTown,
+    validationDate,
   ];
+
   console.log(
     validationFirstName,
     validationLastName,
     validationEmail,
     validationCheckBox,
     validationGamonQuantity,
-    validationTown
+    validationTown,
+    validationDate
   );
   // conditions pour la validation
   function condictionTrueFalse(e) {
     return e == 1;
   }
+
   if (validationArray.some(condictionTrueFalse) == false) {
-    submitButton.disabled = true;
+    submitButton.addEventListener("click", function (e) {
+      if (!dateInput.value.length) {
+        submitButton.disabled = true;
+        numberOfGameon.insertAdjacentElement("afterend", smallCreationGameonQuantity);
+        smallCreationGameonQuantity.style.color = "red";
+        smallCreationGameonQuantity.style.fontSize = "small";
+        smallCreationGameonQuantity.innerText = "Veuillez saisir un nombre en 0 et 99";
+      }
+      if (
+        townCheckbox[0].checked == false &&
+        townCheckbox[1].checked == false &&
+        townCheckbox[2].checked == false &&
+        townCheckbox[3].checked == false &&
+        townCheckbox[4].checked == false &&
+        townCheckbox[5].checked == false
+      ) {
+        submitButton.disabled = true;
+        townCheckbox.insertAdjacentElement("afterend", smallCreationCheckbox);
+        smallCreationGameonQuantity.style.color = "red";
+        smallCreationGameonQuantity.style.fontSize = "small";
+        smallCreationGameonQuantity.innerText = "Veuillez saisir un nombre en 0 et 99";
+      }
+    });
+
     submitButton.insertAdjacentElement("afterend", smallCreationModalValidation);
     smallCreationModalValidation.style.color = "white";
     smallCreationModalValidation.style.fontSize = "small";
